@@ -22,9 +22,16 @@ body {
     &.flex-direction-col {
         flex-direction: column;
     }
+
     //flex-wrap属性定义，如果一条轴线排不下，如何换行
     //flex-wrap: nowrap | wrap | wrap-reverse;
     // flex-wrap: wrap;
+    &.flex-wrap-wrap{
+        flex-wrap:wrap;
+    }
+    &.flex-wrap-wrap-r{
+        flex-wrap:wrap-reverse;
+    }
     //flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap
     //flex-flow: <flex-direction> || <flex-wrap>;
     // flex-flow: column nowrap;
@@ -46,14 +53,23 @@ body {
     //align-items属性定义项目在交叉轴上如何对齐。
     //align-items: flex-start | flex-end | center | baseline | stretch;
     // align-items: center;
-    //align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
-    //align-content: flex-start | flex-end | center | space-between | space-around | stretch;
-    // align-content: center;
     &.align-items-ct {
         align-items: center;
     }
     &.align-items-end {
         align-items: flex-end;
+    }
+    &.align-items-str {
+        align-items: stretch;
+    }
+    //align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
+    //align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+    // align-content: center;
+    &.align-content-sb{
+        align-content:space-between;
+    }
+    &.align-content-end{
+        align-content:flex-end;
     }
 }
 
@@ -64,15 +80,20 @@ body {
     width: 25px;
     height: 25px;
     border-radius: 100%;
+    // margin: 0 2px;
     box-shadow: inset 0 -2px 0 #999;
     &.align-self-ct {
         align-self: center;
     }
-    &.align-self-end{
-        align-self:flex-end;
+    &.align-self-end {
+        align-self: flex-end;
     }
 }
-
+.column{
+    display: flex;
+    flex-basis:100%;
+    justify-content:space-between;
+}
 .order {
     //order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。
     //order: <integer>;
