@@ -3,6 +3,40 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
+@mixin font-dpr($font-size) {
+    font-size: $font-size;
+    [data-dpr="2"] & {
+        font-size: $font-size * 2;
+    }
+    [data-dpr="3"] & {
+        font-size: $font-size * 3;
+    }
+}
+
 @import "compass/reset";
 @import "flexbox";
 @import "flexbox-demo";
+@import "rem-test";
+@import "codepen";
+#topbg {
+    position: relative;
+    padding-top:65.5%;
+    width: 100%;
+    // padding-top: 100%;
+    background: url(../images/01.jpg) top center no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+.blur {
+    -webkit-filter: blur(5px);
+    /* Chrome, Opera */
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    -webkit-transition: all .25s ease;
+       -moz-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+         -o-transition: all .25s ease;
+            transition: all .25s ease;
+}

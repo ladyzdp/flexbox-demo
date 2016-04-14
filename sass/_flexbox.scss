@@ -1,40 +1,41 @@
 @charset "utf-8";
 .flex {
-    width: 1080px;
-    height: 500px;
+    width: 100%;
+    // height: 500px;
+    height: 100vh;
     margin: 20px auto;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     background-color: #669;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     //flex-direction属性决定主轴的方向（即项目的排列方向）
     //flex-decoration: row | row-reverse | column | column-reverse;
     // flex-decoration: column; 
-    
-
     //flex-wrap属性定义，如果一条轴线排不下，如何换行
     //flex-wrap: nowrap | wrap | wrap-reverse;
     // flex-wrap: wrap;
-
-
     //flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap
     //flex-flow: <flex-direction> || <flex-wrap>;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
-
-
     //justify-content属性定义了项目在主轴上的对齐方式。
     //justify-content: flex-start | flex-end | center | space-between | space-around;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
     justify-content: center;
-
-
-
     //align-items属性定义项目在交叉轴上如何对齐。
     //align-items: flex-start | flex-end | center | baseline | stretch;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
     align-items: center;
-
-
     //align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
     //align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
     align-content: center;
 }
 
@@ -42,50 +43,75 @@
     background-color: #7fff00;
     color: #2eb7ed;
     // padding: 5px;
-    margin: 4px;
-    line-height: 100%;
-    text-align: center;
-    width: auto;
-    height: 100px;
+    margin: .5rem;
+    line-height: 1.5;
+    font-size: 1rem;
+    // text-align: center;
+    // @include font-dpr(14px);
+    // width: auto;
+    // height: 100px;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
     flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    /* Portrait */
 }
 
 .order {
     //order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。
     //order: <integer>;
+    -webkit-order: 10;
+    -ms-flex-order: 10;
     order: 10;
 }
 
 .flex-grow {
     //flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
     //flex-grow:<number>;
+    -webkit-flex-grow: 4;
+    -ms-flex-positive: 4;
     flex-grow: 4;
 }
 
 .flex-shrink {
     //flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
     //flex-shrink: <number>;
-
-    flex-shrink:2;
+    -webkit-flex-shrink: 2;
+    -ms-flex-negative: 2;
+    flex-shrink: 2;
 }
 
-.flex-basis{
+.flex-basis {
     //flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
     //浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。
     //flex-basis: <length> | auto;
+    -webkit-flex-basis: 2;
+    -ms-flex-preferred-size: 2;
     flex-basis: 2;
 }
 
-.flex{
+.flex {
     //flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
-    //flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
-
-    flex:0 1 auto;
+    //flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ];
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto
 }
 
-.align-self{
+.align-self {
     //align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。
     //默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
     // align-self: auto | flex-start | flex-end | center | baseline | stretch;
-    align-self:flex-end;
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+}
+
+html {
+    @media screen and (max-width:320px) {
+        font-size: 24px;
+    }
 }
